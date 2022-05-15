@@ -11,7 +11,7 @@ cloud:
       static: ap-south-1
       auto: false
     credentials:
-      access-key: AKIASRZNPHVMG5VND6M3
-      secret-key: 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
+      access-key: xxx
+      secret-key: xxx
     end-point:
       uri: https://sqs.ap-south-1.amazonaws.com/123456789/spring

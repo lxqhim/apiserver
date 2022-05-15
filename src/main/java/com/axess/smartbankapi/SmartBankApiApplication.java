@@ -3,12 +3,16 @@ package com.axess.smartbankapi;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.axess.smartbankapi.dynamodb.DynamoDBConfig;
+import com.axess.smartbankapi.dynamodb.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.axess.smartbankapi.model.CCUser;

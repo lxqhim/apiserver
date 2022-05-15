@@ -2,7 +2,10 @@ package com.axess.smartbankapi.controller;
 
 import java.util.List;
 
+import com.axess.smartbankapi.sqs.TestMessage;
+import io.awspring.cloud.messaging.core.QueueMessagingTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,6 +35,9 @@ public class CCUserController {
 	@Autowired
 	private SQSService sqsService;
 
+//	@Value("${cloud.aws.end-point.uri-useraccess}")
+//	private String userAccessEndpoint;
+
 	@PostMapping("/login")
 	public ResponseEntity<?> verifyLogin(@RequestBody LoginDto loginDto) throws RecordNotFoundException {
 
@@ -47,6 +53,11 @@ public class CCUserController {
 		response.setBody(loggedInUser);
 		response.setError(false);
 		response.setSuccess(true);
+
+		//		sqs
+//		sqsService.sendMessage(loggedInUser.getUserName());
+//		log.info("jack: Login user "+ loggedInUser.getUserName() +" name is sent to user access log");
+
 
 		return ResponseEntity.status(HttpStatus.OK).header("status", String.valueOf(HttpStatus.OK)).body(response);
 
